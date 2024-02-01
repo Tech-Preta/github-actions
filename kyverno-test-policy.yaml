@@ -1,0 +1,29 @@
+name: kyverno-policy-test
+# This workflow is triggered on push to any branch and pull request to the main branch.
+# It runs on ubuntu-latest.
+# It uses the community action kyverno/action-install-cli@v0.2.0
+# It runs the following steps:
+on:
+    push:
+      branches:
+        - '*'
+    pull_request:
+      branches:
+        - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install Kyverno CLI
+        uses: kyverno/action-install-cli@v0.2.0
+        with:
+          release: 'v1.11.0'
+      - name: Check install
+        run: kyverno version
+      - name: Test new resources against existing policies
+        run: kyverno apply policies/ -r resources/
+
