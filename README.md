@@ -1,4 +1,4 @@
-- # GitHub Actions Templates Repository
+- # GitHub Actions Templates Repository [![CI](https://github.com/Tech-Preta/github-actions/actions/workflows/blank.yml/badge.svg)](https://github.com/Tech-Preta/github-actions/actions/workflows/blank.yml)
 
 Este repositório contém arquivos declarativos que podem ser reutilizados livremente para configurar pipelines no GitHub Actions. As pipelines são definidas usando arquivos YAML para automatizar fluxos de trabalho, testes, integração contínua e implantação.
 
